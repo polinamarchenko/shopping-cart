@@ -43815,13 +43815,28 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Cart = function (_React$Component) {
   _inherits(Cart, _React$Component);
 
-  function Cart() {
+  function Cart(props) {
     _classCallCheck(this, Cart);
 
-    return _possibleConstructorReturn(this, (Cart.__proto__ || Object.getPrototypeOf(Cart)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Cart.__proto__ || Object.getPrototypeOf(Cart)).call(this, props));
+
+    _this.state = {
+      showModal: false
+    };
+    return _this;
   }
 
   _createClass(Cart, [{
+    key: 'open',
+    value: function open() {
+      this.setState({ showModal: true });
+    }
+  }, {
+    key: 'close',
+    value: function close() {
+      this.setState({ showModal: false });
+    }
+  }, {
     key: 'handleRemoveItem',
     value: function handleRemoveItem(_id) {
       var currentCart = this.props.cart;
@@ -43830,6 +43845,18 @@ var Cart = function (_React$Component) {
       });
       var newCart = [].concat(_toConsumableArray(currentCart.slice(0, indexToRemove)), _toConsumableArray(currentCart.slice(indexToRemove + 1)));
       this.props.removeCartItem(newCart);
+    }
+  }, {
+    key: 'incrementItem',
+    value: function incrementItem(_id) {
+      this.props.updateCartItem(_id, 1);
+    }
+  }, {
+    key: 'decrementItem',
+    value: function decrementItem(_id, quantity) {
+      if (quantity > 1) {
+        this.props.updateCartItem(_id, -1);
+      }
     }
   }, {
     key: 'render',
@@ -43917,12 +43944,12 @@ var Cart = function (_React$Component) {
                 null,
                 _react2.default.createElement(
                   _reactBootstrap.Button,
-                  { onClick: this.incrementItem.bind(this, cartItem._id), bsStyle: 'default', bsSize: 'small' },
+                  { onClick: this.decrementItem.bind(this, cartItem._id, cartItem.quantity), bsStyle: 'default', bsSize: 'small' },
                   '-'
                 ),
                 _react2.default.createElement(
                   _reactBootstrap.Button,
-                  { bsStyle: 'default', bsSize: 'small' },
+                  { onClick: this.incrementItem.bind(this, cartItem._id), bsStyle: 'default', bsSize: 'small' },
                   '+'
                 ),
                 _react2.default.createElement(
@@ -43938,7 +43965,61 @@ var Cart = function (_React$Component) {
       return _react2.default.createElement(
         _reactBootstrap.Panel,
         { header: 'cart', bsStyle: 'primary' },
-        cartItemsList
+        cartItemsList,
+        _react2.default.createElement(
+          _reactBootstrap.Row,
+          null,
+          _react2.default.createElement(
+            _reactBootstrap.Col,
+            { xs: 6, sm: 4 },
+            _react2.default.createElement(
+              'h6',
+              null,
+              'Total amount: '
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.Button,
+              { onClick: this.open.bind(this), bsStyle: 'success', bsSize: 'small' },
+              'Proceed to checkout'
+            )
+          )
+        ),
+        _react2.default.createElement(
+          _reactBootstrap.Modal,
+          { show: this.state.showModal, onHide: this.close.bind(this) },
+          _react2.default.createElement(
+            _reactBootstrap.Modal.Header,
+            { closeButton: true },
+            _react2.default.createElement(
+              _reactBootstrap.Modal.Title,
+              null,
+              'Thank you!'
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Modal.Body,
+            null,
+            _react2.default.createElement(
+              'h4',
+              null,
+              'Your order has been saved'
+            ),
+            _react2.default.createElement(
+              'p',
+              null,
+              'You will receive an email confirmation'
+            )
+          ),
+          _react2.default.createElement(
+            _reactBootstrap.Modal.Footer,
+            null,
+            _react2.default.createElement(
+              _reactBootstrap.Button,
+              { onClick: this.close.bind(this) },
+              'Close'
+            )
+          )
+        )
       );
     }
   }]);
@@ -43953,7 +44034,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return (0, _redux.bindActionCreators)({ removeCartItem: _cart.removeCartItem }, dispatch);
+  return (0, _redux.bindActionCreators)({ removeCartItem: _cart.removeCartItem, updateCartItem: _cart.updateCartItem }, dispatch);
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Cart);
