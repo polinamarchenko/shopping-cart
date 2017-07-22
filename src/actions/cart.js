@@ -6,3 +6,18 @@ export function addToCart(book) {
     payload: book
   }
 }
+
+export function removeCartItem(cart) {
+  return {
+    type: "REMOVE_CART_ITEM",
+    payload: cart
+  }
+}
+
+export function updateCartItem(_id, unit) {
+  return {
+    type: "UPDATE_CART_ITEM",
+    _id,
+    unit
+  }
+}
