@@ -12,6 +12,7 @@ import {addToCart} from './actions/cart';
 import {postBook, deleteBook, updateBook} from './actions/books';
 
 import BooksList from './components/pages/BooksList';
+import Navigation from './components/pages/Navigation';
 
 //3 STEP define reducers
 //reducers must not mutate the state!!!
@@ -22,9 +23,11 @@ const store = createStore(reducers, middleware);
 
 render(
   <Provider store={store}>
-    <BooksList />
+    <div>
+      <Navigation />
+      <BooksList />
+    </div>
   </Provider>, document.getElementById('app')
-
 );
 // store.subscribe(function() {
 //   console.log('current state is', store.getState());

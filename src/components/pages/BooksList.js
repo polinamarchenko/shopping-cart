@@ -39,7 +39,6 @@ class BooksList extends React.Component {
         <Row>
           {booksList}
         </Row>
-
       </Grid>
     )
   }
