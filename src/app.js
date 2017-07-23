@@ -12,7 +12,8 @@ import {addToCart} from './actions/cart';
 import {postBook, deleteBook, updateBook} from './actions/books';
 
 import BooksList from './components/pages/BooksList';
-import Navigation from './components/pages/Navigation';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 
 //3 STEP define reducers
 //reducers must not mutate the state!!!
@@ -26,6 +27,7 @@ render(
     <div>
       <Navigation />
       <BooksList />
+      <Footer />
     </div>
   </Provider>, document.getElementById('app')
 );

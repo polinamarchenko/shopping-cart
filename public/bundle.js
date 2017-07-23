@@ -19074,9 +19074,13 @@ var _BooksList = __webpack_require__(350);
 
 var _BooksList2 = _interopRequireDefault(_BooksList);
 
-var _Navigation = __webpack_require__(490);
+var _Navigation = __webpack_require__(491);
 
 var _Navigation2 = _interopRequireDefault(_Navigation);
+
+var _Footer = __webpack_require__(492);
+
+var _Footer2 = _interopRequireDefault(_Footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19084,9 +19088,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //reducers must not mutate the state!!!
 
 //1 STEP create the store
-var middleware = (0, _redux.applyMiddleware)(_reduxLogger2.default); //Provider component wraps React inside of render method and passes the store as a props!
+//Provider component wraps React inside of render method and passes the store as a props!
 
 
+var middleware = (0, _redux.applyMiddleware)(_reduxLogger2.default);
 var store = (0, _redux.createStore)(_index2.default, middleware);
 
 (0, _reactDom.render)(_react2.default.createElement(
@@ -19096,7 +19101,8 @@ var store = (0, _redux.createStore)(_index2.default, middleware);
     'div',
     null,
     _react2.default.createElement(_Navigation2.default, null),
-    _react2.default.createElement(_BooksList2.default, null)
+    _react2.default.createElement(_BooksList2.default, null),
+    _react2.default.createElement(_Footer2.default, null)
   )
 ), document.getElementById('app'));
 // store.subscribe(function() {
@@ -44127,7 +44133,8 @@ function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Cart);
 
 /***/ }),
-/* 490 */
+/* 490 */,
+/* 491 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44227,6 +44234,64 @@ var Navigation = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Navigation;
+
+/***/ }),
+/* 492 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Footer = function (_React$Component) {
+  _inherits(Footer, _React$Component);
+
+  function Footer() {
+    _classCallCheck(this, Footer);
+
+    return _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).apply(this, arguments));
+  }
+
+  _createClass(Footer, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "footer",
+        { className: "footer text-center" },
+        _react2.default.createElement(
+          "div",
+          { className: "container" },
+          _react2.default.createElement(
+            "p",
+            { className: "footer-text" },
+            "Copyright 2017. All rights reserved."
+          )
+        )
+      );
+    }
+  }]);
+
+  return Footer;
+}(_react2.default.Component);
+
+exports.default = Footer;
 
 /***/ })
 /******/ ]);

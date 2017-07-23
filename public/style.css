@@ -1,0 +1,22 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  margin-top: 10rem 0;
+}
+
+.container {
+  width: auto;
+  max-width: 100rem;
+  padding: 1rem;
+}
+
+.container footer-text {
+  margin: 1.3rem 0
+}
+
+.badge {
+  background-color: green;
+}
