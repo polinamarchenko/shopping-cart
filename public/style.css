@@ -10,13 +10,23 @@ body {
 .container {
   width: auto;
   max-width: 100rem;
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
+.container-footer {
+  width: auto;
+  background-color: #222;
+  color: grey;
+  padding: 1rem;
+}
 .container footer-text {
-  margin: 1.3rem 0
+  margin: 1.3rem 0;
 }
 
 .badge {
   background-color: green;
+}
+
+.cart {
+  margin-top: 7rem;
 }

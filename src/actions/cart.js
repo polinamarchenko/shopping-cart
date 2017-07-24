@@ -21,3 +21,9 @@ export function updateCartItem(_id, unit) {
     unit
   }
 }
+
+export function getCart() {
+  return {
+    type: "GET_CART",
+  }
+}

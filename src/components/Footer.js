@@ -6,7 +6,7 @@ class Footer extends React.Component {
   render() {
     return (
       <footer className="footer text-center">
-        <div className="container">
+        <div className="container-footer">
           <p className="footer-text">
             Copyright 2017. All rights reserved.
           </p>

@@ -35,6 +35,9 @@ export function cartReducers(state={cart: []}, action) {
         totalQty: totals(cartUpdate).qty
       }
       break;
+    case "GET_CART":
+      return {...state, cart: [...state.cart]}
+      break;
     }
   return state;
 }
