@@ -5,6 +5,7 @@ import logger from 'redux-logger';
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux'; //Provider component wraps React inside of render method and passes the store as a props!
+import thunk from 'redux-thunk';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import reducers from './reducers/index';
@@ -17,7 +18,7 @@ import Cart from './components/pages/Cart';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 
-const middleware = applyMiddleware(logger);
+const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducers, middleware);
 
 const Routes = (

@@ -12,7 +12,6 @@ import Cart from './Cart';
 
 class BooksList extends React.Component {
   componentDidMount(){
-    //dispatch an action
     this.props.getBooks();
   }
   render() {

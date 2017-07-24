@@ -48,15 +48,16 @@ class Cart extends React.Component {
   }
     renderEmpty() {
       return (
-        <Panel header="cart" bsStyle="primary">
-          <Panel>
-            <Row>
-              <Col xs={12} sm={4}>
-              <h6>Your cart is empty</h6>
-              </Col>
-            </Row>
-          </Panel>
-        </Panel>
+        // <Panel header="cart" bsStyle="primary">
+        //   <Panel>
+        //     <Row>
+        //       <Col xs={12} sm={4}>
+        //       <h6>Your cart is empty</h6>
+        //       </Col>
+        //     </Row>
+        //   </Panel>
+        // </Panel>
+        <h6>Empty</h6>
       )
     }
 

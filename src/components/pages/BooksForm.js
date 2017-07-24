@@ -20,13 +20,13 @@ class BooksForm extends React.Component {
   }
 
   onDelete(){
-    let bookId = findDOMNode(this.refs.delete).value;
+    let bookId = findDOMNode(this.refs.label).value;
     this.props.deleteBook(bookId);
   }
 
   render() {
 
-    const bookList = this.props.books.map((book) => <option key={book._id}>{book._id}</option>)
+    const bookList = this.props.books.map((book) => <option key={book._id}>{book.title}</option>)
     return (
       <Well>
         <Panel>
