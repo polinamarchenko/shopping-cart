@@ -5,7 +5,7 @@ import axios from 'axios';
 //Get books doesn't have a payload and will request data from our database
 export function getBooks() {
   return (dispatch) => {
-    axios.get('/books')
+    axios.get('/api/books')
       .then((response) => {
         dispatch({type: "GET-BOOKS", payload: response.data})
       })
@@ -21,7 +21,7 @@ export function getBooks() {
 //we return a function instead of an action, because we use redux-thunk
 export function postBook(book) {
   return (dispatch) => {
-    axios.post('/books', book)
+    axios.post('/api/books', book)
       .then((response) => {
         dispatch({type: "POST-BOOK", payload: response.data})
       })
@@ -37,7 +37,7 @@ export function postBook(book) {
 
 export function deleteBook(id) {
   return (dispatch) => {
-    axios.delete(`/books/${id}`)
+    axios.delete(`/api/books/${id}`)
       .then((response) => {
         dispatch({type: "DELETE-BOOK", payload: id})
       })
